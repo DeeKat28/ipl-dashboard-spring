@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export const MatchSmallCard = ({ teamName, match }) => {
   if (!match) return null;
   const otherTeam = teamName === match.team1 ? match.team2 : match.team1;
-  const otherTeamLink = `/teams/${otherTeam}`;
+  const otherTeamLink = `/team/${otherTeam}`;
   const IsMatchWon = teamName === match.matchWinner;
 
   return (

@@ -8,11 +8,8 @@ function App() {
     <div className='App'>
       <Router>
         <Routes>
-          <Route path='/teams/:teamName' element={<TeamPage />}></Route>
-          <Route
-            path='/teams/:teamName/matches'
-            element={<MatchPage />}
-          ></Route>
+          <Route path='/team/:teamName' element={<TeamPage />}></Route>
+          <Route path='/team/:teamName/matches' element={<MatchPage />}></Route>
         </Routes>
       </Router>
     </div>

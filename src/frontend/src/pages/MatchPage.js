@@ -1,7 +1,9 @@
+import "./MatchPage.scss";
 import React, { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 
-import { MatchSmallCard } from "../components/MatchSmallCard";
+import { MatchDetailCard } from "../components/MatchDetailCard";
+import { YearSelector } from "../components/YearSelector";
 
 export const MatchPage = () => {
   const [matches, setMatches] = useState([]);
@@ -24,10 +26,16 @@ export const MatchPage = () => {
 
   return (
     <div className='MatchPage'>
-      <h1>MatchPage</h1>
-      {matches.map((match) => (
-        <MatchSmallCard key={match.id} teamName={teamName} match={match} />
-      ))}
+      <div className='year-section'>
+        <h3>Select Year</h3>
+        <YearSelector teamName={teamName} />
+      </div>
+      <div>
+        <h1 className='match-page-heading'>{`${teamName} matches in ${year}`}</h1>
+        {matches.map((match) => (
+          <MatchDetailCard key={match.id} teamName={teamName} match={match} />
+        ))}
+      </div>
     </div>
   );
 };
