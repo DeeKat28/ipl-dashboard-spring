@@ -7,11 +7,19 @@
 
   .team-name-section {
     grid-column: span 3;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .home-header {
     justify-self: start;
-    align-self: end;
+    align-self: start;
   }
 
   .team-name {
+    justify-self: start;
+    align-self: end;
     font-size: 4rem;
     margin-bottom: 20px;
   }

@@ -16,6 +16,7 @@ export const TeamPage = () => {
   const { teamName } = useParams();
 
   useEffect(() => {
+    document.title = `${teamName}`;
     const fetchTeam = async () => {
       const response = await fetch(`http://localhost:8080/team/${teamName}`);
       const data = await response.json();
@@ -28,6 +29,9 @@ export const TeamPage = () => {
   return (
     <div className='TeamPage'>
       <div className='team-name-section'>
+        <h2 className='home-header'>
+          <Link to={{ pathname: "/" }}>Home</Link>
+        </h2>
         <h1 className='team-name'>{team.teamName}</h1>
       </div>
       <div className='win-loss-section'>
