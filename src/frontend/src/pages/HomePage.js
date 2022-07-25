@@ -7,8 +7,11 @@ export const HomePage = () => {
   const [teams, setTeams] = useState([]);
 
   useEffect(() => {
+    document.title = "IPL Dashboard";
     const fetchTeams = async () => {
-      const response = await fetch(`http://localhost:8080/teams`);
+      const response = await fetch(
+        `${process.env.REACT_APP_API_ROOT_URL}/teams`
+      );
       const data = await response.json();
       setTeams(data);
     };
@@ -20,7 +23,7 @@ export const HomePage = () => {
       <h1 className='app-name'>IPL DashBoard</h1>
       <div className='team-grid'>
         {teams.map((team) => (
-          <TeamTile teamName={team.teamName} />
+          <TeamTile key={team.id} teamName={team.teamName} />
         ))}
       </div>
     </div>
